@@ -31,13 +31,19 @@ describe("Prueba página login", ()=>{
     cy.get('input[name="password"].oxd-input--error');
     cy.get('span.oxd-text.oxd-text--span.oxd-input-field-error-message').contains('Required');
   });
-  /*
+
   it('inicio de sesión fallido', ()=>{
-
+    cy.location('pathname').should('eq', '/web/index.php/auth/login');
+    cy.get('input[name="username"]').type(datos.userError);
+    cy.get('input[name="password"]').type(datos.passError);
+    cy.get('button[type="submit"]').click();
+    cy.get('div[role="alert"].oxd-alert.oxd-alert--error');
+    cy.get('i.oxd-icon.bi-exclamation-circle.oxd-alert-content-icon').should('be.visible');
+    cy.get('p.oxd-text.oxd-text--p.oxd-alert-content-text').contains('Invalid credentials');
+    cy.intercept('POST','/web/index.php/auth/validate',{
+      statusCode: 302,
+    });
   });
-  it('Cambio de contraseña', ()=>{
-
-  });*/
 
   it('Ingreso al software', ()=>{
     cy.location('pathname').should('eq', '/web/index.php/auth/login');
