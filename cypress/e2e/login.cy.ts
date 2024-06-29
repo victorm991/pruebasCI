@@ -27,8 +27,8 @@ describe("Prueba página login", ()=>{
   it('Campos vacíos', ()=>{
     cy.location('pathname').should('eq', '/web/index.php/auth/login');
     cy.get('button[type="submit"]').contains('Login').click();
-    cy.get('input[name="username"][class="oxd-input--error"]');
-    cy.get('input[name="password"][class="oxd-input--error"]');
+    cy.get('input[name="username"].oxd-input--error');
+    cy.get('input[name="password"].oxd-input--error');
     cy.get('span.oxd-text.oxd-text--span.oxd-input-field-error-message').contains('Required');
   });
   /*
