@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+import  cypress = require("cypress");
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -8,30 +8,16 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+declare global {
+    namespace Cypress{
+        interface Chainable {
+            inicioSesion(user: string, pass: string): Chainable <JQuery<Element>>
+        }
+    }
+}
+Cypress.Commands.add<any>('inicioSesion', (user: string, pass: string) =>{
+    cy.location('pathname').should('eq', '/web/index.php/auth/login');
+    cy.get('input[name="username"]').should('be.visible').type(user);
+    cy.get('input[name="password"]').should('be.visible').type(pass);
+    cy.get('.oxd-button').click();
+});
