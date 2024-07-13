@@ -7,7 +7,7 @@ describe('Casos de prueba Admin', ()=>{
     });
     beforeEach(()=>{
       cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-    })
+    });
     beforeEach(()=>{
         cy.session('sesión', ()=>{
             cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
