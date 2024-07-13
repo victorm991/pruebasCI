@@ -1,10 +1,13 @@
 describe('Casos de prueba Admin', ()=>{
     let datos: any;
     before(()=>{
-        cy.fixture('datos.json').then((data)=>{
-            datos = data;
-        });
+      cy.fixture('datos.json').then((data) =>{
+        datos = data;
+      });
     });
+    beforeEach(()=>{
+      cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+    })
     beforeEach(()=>{
         cy.session('sesión', ()=>{
             cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
