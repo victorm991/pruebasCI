@@ -34,9 +34,7 @@ describe("Prueba página login", ()=>{
 
   it('inicio de sesión fallido', ()=>{
     cy.location('pathname').should('eq', '/web/index.php/auth/login');
-    cy.get('input[name="username"]').type(datos.userError);
-    cy.get('input[name="password"]').type(datos.passError);
-    cy.get('button[type="submit"]').click();
+    cy.inicioSesion(datos.userError, datos.passError);
     cy.get('div[role="alert"].oxd-alert.oxd-alert--error');
     cy.get('i.oxd-icon.bi-exclamation-circle.oxd-alert-content-icon').should('be.visible');
     cy.get('p.oxd-text.oxd-text--p.oxd-alert-content-text').contains('Invalid credentials');
@@ -47,11 +45,7 @@ describe("Prueba página login", ()=>{
 
   it('Ingreso al software', ()=>{
     cy.location('pathname').should('eq', '/web/index.php/auth/login');
-
-    cy.get('input[name="username"]').should('be.visible').type(datos.username);
-    cy.get('input[name="password"]').should('be.visible').type(datos.password);
-    cy.get('.oxd-button').click();
-
+    cy.inicioSesion(datos.username, datos.password);
     cy.location('pathname').should('eq','/web/index.php/dashboard/index');
     cy.get('a.oxd-main-menu-item.active > span').should('be.visible').contains('Dashboard');
   });
