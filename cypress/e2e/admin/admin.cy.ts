@@ -4,10 +4,7 @@ describe('Casos de prueba Admin', ()=>{
       cy.fixture('datos.json').then((data) =>{
         datos = data;
       });
-    });
-    beforeEach(()=>{
-      cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-    });
+    }); 
     beforeEach(()=>{
         cy.session('sesión', ()=>{
             cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
