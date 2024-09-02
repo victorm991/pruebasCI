@@ -16,5 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 
+beforeEach(()=>{
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+})
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

@@ -1,4 +1,4 @@
 #Ignora el node_modules en los git add
-node_modules
+node_modules/
 #Tiene las configuraciones del IDE es más personal.
-.idea
+.idea/
