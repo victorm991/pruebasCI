@@ -1,30 +1,26 @@
-import LoginPage from '../pageObject/login/loginElements';
-const loginPage = new LoginPage();
+import loginData from "../pageObject/login/loginData";
+import loginMethods from "../pageObject/login/loginMethods";
 
-describe("Prueba página login", ()=>{
-  let datos: any;
-  before(()=>{
-    cy.fixture('datos.json').then((data) =>{
-      datos = data;
-    });
-  });
-  beforeEach(()=>{
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-  })
+//Instanciamiento de los datos de prueba en loginData.ts
+const datos = loginData.validCredentiasl;
+const datosError = loginData.invalidCredentials;
 
-  it('verificación de formulario', ()=>{
-    loginPage.EstilosFormulario();
+describe("Set de pruebas Login Page", () => {
+
+  it('Test 1: Verificar Estilos formulario', ()=>{
+    loginMethods.verificarFormulario();
   });
 
-  it('Campos vacíos', ()=>{
-    loginPage.EnvioCamposVacios();
+  it('Test 2: Ingreso con credenciales invalidas', () =>{
+    loginMethods.insertarUsername(datosError.username);
+    loginMethods.insertarPassword(datosError.password);
+    loginMethods.clickLogin();
+    loginMethods.MensajeCredencialesInvalidas();
   });
 
-  it('inicio de sesión fallido', ()=>{
-    loginPage.InicioSesionFallido(datos.userError, datos.passError);
-  });
-
-  it('Ingreso al software', ()=>{
-    loginPage.InicioSesion(datos.username, datos.password)
+  it('Test 3: Inicio de sesión éxitoso', () => {
+    loginMethods.insertarUsername(datos.username);
+    loginMethods.insertarPassword(datos.password);
+    loginMethods.clickLogin();
   });
 });

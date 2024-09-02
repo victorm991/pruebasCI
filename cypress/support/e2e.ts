@@ -17,7 +17,7 @@
 import './commands';
 
 beforeEach(()=>{
-    cy.visit('');
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 })
 
 // Alternatively you can use CommonJS syntax:
