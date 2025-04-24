@@ -1,18 +1,18 @@
 name: orangeHRM
-on: [push]
-on:
-  push:
-    branches:
-      - main
-      - feature/*
-      - hotfix/*
+#on: [push]
+#on:
+#  push:
+#    branches:
+#      - main
+#      - feature/*
+#      - hotfix/*
 on:
   pull_request:
     branches:
       - '**'
   push:
     branches:
-      - main
+      - '**'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
