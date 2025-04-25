@@ -49,7 +49,7 @@ class loginElements {
     }
 
     static get invalidCredentialsMessage(){
-        return cy.get('div[role="alert"].oxd-alert--error').contains('have.text', 'Invalid credentials');
+        return cy.get('.oxd-alert').contains('have.text', 'Invalid credentials');
     }
 }    
 export default loginElements;
