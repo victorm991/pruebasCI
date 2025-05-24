@@ -9,7 +9,7 @@ name: orangeHRM
 on:
   pull_request:
     branches:
-      - main
+      - master
   push:
     branches:
       - '**'
