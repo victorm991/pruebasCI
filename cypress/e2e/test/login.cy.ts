@@ -15,6 +15,7 @@ describe("Set de pruebas Login Page", () => {
     loginMethods.insertarUsername(datosError.username);
     loginMethods.insertarPassword(datosError.password);
     loginMethods.clickLogin();
+    cy.wait(1000);
     loginMethods.MensajeCredencialesInvalidas();
   });
 

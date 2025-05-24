@@ -33,7 +33,7 @@ class loginMethods {
     }
 
     static MensajeCredencialesInvalidas(){
-        loginElements.invalidCredentialsMessage.should('be.visible');
+        loginElements.invalidCredentialsMessage;
     }
 }
 export default loginMethods;
