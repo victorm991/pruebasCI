@@ -35,5 +35,11 @@ class loginMethods {
     static MensajeCredencialesInvalidas(){
         loginElements.invalidCredentialsMessage;
     }
+    
+    static login(username, password){
+        this.insertarUsername(username);
+        this.insertarPassword(password);
+        this.clickLogin();
+    }
 }
 export default loginMethods;
